@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pws
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: pws
+  template:
+    metadata:
+      labels:
+        app: pws
+    spec:
+      containers:
+      - name: pws
+        image: bogd/python-webserver
