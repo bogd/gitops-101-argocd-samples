@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: secondapp-config
+data:
+  index.html: |
+    Congratulations! <p>
+    This is your second app deployed via ArgoCD!
