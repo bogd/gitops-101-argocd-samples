@@ -6,7 +6,6 @@ metadata:
   {{- include "webapp.labels" . | nindent 4 }}
 data:
   index.html: |
-    Hello user! <p>
     This is version {{ .Chart.AppVersion }} of our app, running in {{ .Values.appType }}
 
 
