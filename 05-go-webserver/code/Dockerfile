@@ -6,6 +6,8 @@ WORKDIR /webserver
 
 COPY . .
 
+RUN go mod download
+
 RUN go build -o bin/webserver src/main.go
 
 FROM alpine:3.16
@@ -24,6 +26,10 @@ RUN addgroup -S app \
 WORKDIR /home/app
 
 COPY --from=builder /webserver/bin/webserver .
+
+RUN mkdir -p static
+COPY static_page/ static
+
 RUN chown -R app:app ./
 
 USER app
